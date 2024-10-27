@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTS</title>
+    <style>
+        
+        .foto-container {
+            position: relative;
+            width: 250px; /* Ukuran diperbesar */
+            height: 250px; /* Ukuran diperbesar */
+            margin: 0 auto;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .foto-container:hover {
+            transform: scale(1.05);
+        }
+
+        .foto-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Memastikan foto mengisi seluruh container */
+            object-position: center; /* Memposisikan foto di tengah */
+            display: block; /* Menghilangkan gap di bawah gambar */
+        }
+
+        .foto-frame {
+            position: relative;
+            padding: 20px;
+            background: linear-gradient(45deg, #f3f3f3, #ffffff);
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 300px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .foto-frame::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #1796e6, #0b89d7);
+            z-index: -1;
+            border-radius: 12px;
+        }
+
+        .foto-caption {
+            text-align: center;
+            margin-top: 15px;
+            font-style: italic;
+            color: #666;
+            padding: 10px 0;
+        }
+
+        /* Animasi untuk foto */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .foto-container:hover {
+            animation: pulse 2s infinite;
+        }
+
+        /* Style untuk overlay pada foto */
+        .foto-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                45deg,
+                rgba(80, 150, 254, 0.2),
+                rgba(0, 0, 0, 0)
+            );
+            z-index: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .foto-container:hover::before {
+            opacity: 0.7;
+        }
+
+        /* Style untuk bio */
+.bio {
+    position: relative;
+    background: linear-gradient(145deg, #ffffff, #f3f3f3);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 800px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(10px);
+}
+
+.bio::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #1796e6, transparent, #1796e6);
+    border-radius: 22px;
+    z-index: -1;
+    animation: borderGlow 3s linear infinite;
+}
+
+@keyframes borderGlow {
+    0% { filter: blur(5px); opacity: 0.5; }
+    50% { filter: blur(7px); opacity: 0.8; }
+    100% { filter: blur(5px); opacity: 0.5; }
+}
+
+.bio h2 {
+    text-align: center;
+    font-size: 2em;
+    background: linear-gradient(45deg, #1796e6, #0b4f79);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.bio h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, #1796e6, transparent);
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+.bio p {
+    position: relative;
+    padding: 15px 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.bio p:hover {
+    transform: translateX(10px);
+    background: linear-gradient(to right, #ffffff, #f8f9fa);
+    box-shadow: 0 8px 20px rgba(23, 150, 230, 0.15);
+}
+
+.bio p strong {
+    color: #1796e6;
+    font-size: 1.1em;
+    display: inline-block;
+    min-width: 120px;
+    position: relative;
+}
+
+.bio p strong::after {
+    content: ':';
+    position: absolute;
+    right: 10px;
+}
+
+
+/* Efek hover untuk setiap baris informasi */
+.bio p:nth-child(2):hover { border-left: 4px solid #FF6B6B; }
+.bio p:nth-child(3):hover { border-left: 4px solid #4ECDC4; }
+.bio p:nth-child(4):hover { border-left: 4px solid #45B7D1; }
+.bio p:nth-child(5):hover { border-left: 4px solid #96CEB4; }
+
+/* Animasi muncul untuk bio */
+.bio {
+    animation: bioAppear 0.8s ease-out;
+}
+
+@keyframes bioAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efek hover tambahan untuk bio */
+.bio:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+
+/* Tambahan style untuk responsive design */
+@media (max-width: 768px) {
+    .bio {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .bio p {
+        padding: 12px 15px;
+    }
+
+    .bio p strong {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .bio h2 {
+        font-size: 1.5em;
+    }
+}
+
+/* Tambahan efek visual */
+.bio p::before {
+    content: '•';
+    color: #1796e6;
+    margin-right: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.bio p:hover::before {
+    opacity: 1;
+}
+
+/* Efek highlight saat hover */
+.bio p:hover strong {
+    text-shadow: 0 0 1px rgba(23, 150, 230, 0.5);
+}
+
+/* Tambahan animasi untuk teks */
+.bio p {
+    overflow: hidden;
+    position: relative;
+}
+
+.bio p::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #1796e6, transparent);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.bio p:hover::after {
+    transform: translateX(100%);
+}
+
+/* Efek glass morphism */
+.bio {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Tambahan animasi untuk strong elements */
+.bio p strong {
+    transition: all 0.3s ease;
+}
+
+.bio p:hover strong {
+    transform: translateX(5px);
+    color: #0b4f79;
+}
+        .bio {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .bio:hover {
+            transform: translateY(-5px);
+        }
+
+        .bio h2 {
+            color: #1796e6;
+            border-bottom: 2px solid #1796e6;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .bio p {
+            line-height: 1.6;
+            margin: 10px 0;
+            padding: 5px 0;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .bio p:hover {
+            background-color: #f9f9f9;
+            padding-left: 10px;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        header {
+            background-color: #1796e6;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .page {
+            display: none;
+            padding-top: 120px;
+            min-height: calc(100vh - 120px);
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        /* Style baru untuk header dan navigasi */
+header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 2.5em;
+    background: linear-gradient(to right, #fff, #e0e0e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    position: relative;
+    display: inline-block;
+}
+
+header h1::after {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 2px;
+    bottom: 0;
+    left: 10%;
+    background: linear-gradient(to right, transparent, #fff, transparent);
+}
+
+/* Style baru untuk menu navigasi */
+nav ul {
+    margin-top: 15px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav ul li {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #1796e6, #0b4f79);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover::before {
+    opacity: 1;
+}
+
+nav ul li a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Style untuk judul section */
+section h2 {
+    text-align: center;
+    font-size: 2.2em;
+    margin-bottom: 30px;
+    background: linear-gradient(45deg, #1796e6, #0b4f79);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, #1796e6, #0b4f79);
+    border-radius: 3px;
+}
+
+/* Style untuk Halaman Utama */
+#home {
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.2) 100%);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    margin: 20px;
+    padding: 115px;
+    box-shadow: 0 8px 32px rgba(31,38,135,0.15);
+}
+
+/* Style untuk Informasi Kuliah */
+#infoKuliah {
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.2) 100%);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    margin: 20px;
+    padding: 110px;
+}
+
+/* Style untuk semester navigation */
+.semester-nav {
+    background: linear-gradient(45deg, rgba(23,150,230,0.1), rgba(11,79,121,0.1));
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.semester-nav button {
+    background: linear-gradient(45deg, #1796e6, #0b4f79);
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.semester-nav button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Animasi untuk transisi halaman */
+.page {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.page.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Style untuk tabel mata kuliah */
+.course-table {
+    background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.course-table thead tr {
+    background: linear-gradient(45deg, #1796e6, #0b4f79);
+    color: white;
+}
+
+.course-table th {
+    padding: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.course-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.course-table tbody tr:hover {
+    background: linear-gradient(45deg, rgba(23,150,230,0.05), rgba(11,79,121,0.05));
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .semester-nav button {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+        .foto-diri {
+            text-align: center;
+        }
+
+        .foto-diri img {
+            border-radius: 50%;
+            margin: 20px auto;
+            display: block;
+            max-width: 200px;
+        }
+
+        .bio {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #0b4f79;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Tombol navigasi semester */
+        .semester-nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .semester-nav button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #006aac;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .semester-nav button:hover {
+            background-color: #006aac;
+        }
+
+        .fade {
+            animation: fadeEffect 1s;
+        }
+
+        @keyframes fadeEffect {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        /* Style untuk informasi kuliah */
+        /* Style untuk konten semester */
+.semester-content {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+    margin-top: 20px;
+}
+
+/* Style untuk tabel */
+.course-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.course-table thead {
+    background: linear-gradient(45deg, #1796e6, #0b4f79);
+    color: white;
+}
+
+.course-table th,
+.course-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.course-table tbody tr:hover {
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+/* Animasi fade in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Style untuk responsive table */
+@media screen and (max-width: 768px) {
+    .course-table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+        .semester-nav {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .semester-nav button {
+            padding: 12px 25px;
+            margin: 0 10px;
+            background: linear-gradient(135deg, #1796e6, #0b4f79);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .semester-nav button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Style untuk tabel */
+        .course-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .course-table thead tr {
+            background: linear-gradient(135deg, #1796e6, #0b4f79);
+            color: white;
+            text-align: left;
+        }
+
+        .course-table th,
+        .course-table td {
+            padding: 15px;
+        }
+
+        .course-table th {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .course-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+            transition: all 0.3s ease;
+        }
+
+        .course-table tbody tr:last-of-type {
+            border-bottom: 2px solid #1796e6;
+        }
+
+        .course-table tbody tr:hover {
+            background-color: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Style untuk kode mata kuliah */
+        .course-code {
+            font-weight: bold;
+            color: #1796e6;
+            font-family: 'Courier New', monospace;
+            display: block;
+        }
+
+        /* Style untuk nama mata kuliah */
+        .course-name {
+            font-weight: 500;
+            color: #333;
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* Style untuk jadwal */
+        .course-schedule {
+            display: flex;
+            align-items: center;
+            color: #666;
+            gap: 5px;
+        }
+
+        .course-schedule::before {
+            content: '🕒';
+        }
+
+        /* Style untuk nama dosen */
+        .lecturer-name {
+            display: flex;
+            align-items: center;
+            color: #555;
+            gap: 5px;
+        }
+
+        .lecturer-name::before {
+            content: '👨‍🏫';
+        }
+
+        /* Style untuk status badge */
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .status-active {
+            background-color: #e3f2fd;
+            color: #1796e6;
+        }
+
+        /* Animation */
+        .semester-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .course-table {
+                font-size: 14px;
+            }
+
+            .course-table th,
+            .course-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <header>
+        <h1>Profil Pribadi</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showPage('home')">Halaman Utama</a></li>
+                <li><a href="#" onclick="showPage('infoKuliah')">Informasi Kuliah</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Halaman Utama -->
+    <div id="home" class="page active fade">
+        <section class="foto-diri">
+            <h2>Foto Diri</h2>
+            <div class="foto-frame">
+                <div class="foto-container">
+                    <img src="Putri.jpg" alt="Foto Diri">
+                </div>
+                <div class="foto-caption">
+                    "Mahasiswa Sistem Informasi"
+                </div>
+            </div>
+            
+            <div class="bio">
+                <h2>Biografi</h2>
+                <p><strong>Nama:</strong> Putri Rahma Azalia</p>
+                <p><strong>Nim:</strong> 41823010091</p>
+                <p><strong>Jurusan:</strong> Sistem Informasi</p>
+                <p><strong>Sosial Media:</strong> Ig: @pputriiizl, X: Putrirhmaazl, Tiktok: pptrii2</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Halaman Informasi Kuliah -->
+    <div class="container">
+        <div id="infoKuliah" class="page">
+            <div class="semester-nav">
+                <button onclick="showSemester('semester1')">Semester Ganjil</button>
+                <button onclick="showSemester('semester2')">Semester Genap</button>
+            </div>
+
+            <div id="semester1" class="semester-content">
+                <h3>Daftar Mata Kuliah Semester Ganjil</h3>
+                <table class="course-table">
+                    <thead>
+                        <tr>
+                            <th>Kode MK</th>
+                            <th>Mata Kuliah</th>
+                            <th>Jadwal Kuliah</th>
+                            <th>Dosen Pengampu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="course-code">U002100011</span></td>
+                            <td>
+                                <span class="course-name">KEWIRAUSAHAAN I</span>
+                                <span class="status-badge status-active">Aktif</span>
+                            </td>
+                            <td><span class="course-schedule">Senin 13:15 - 14:45</span></td>
+                            <td><span class="lecturer-name">Zulfitri, Dr. MP, MM</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="course-code">F062100005</span></td>
+                            <td>
+                                <span class="course-name">PEMROGRAMAN BERORIENTASI OBJEK</span>
+                                <span class="status-badge status-active">Aktif</span>
+                            </td>
+                            <td><span class="course-schedule">Rabu 07:30 - 10:00</span></td>
+                            <td><span class="lecturer-name">Lukman Hakim, ST, M.Kom</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="course-code">W182100015</span></td>
+                            <td>
+                                <span class="course-name">PEMODELAN PROSES BISNIS</span>
+                                <span class="status-badge status-active">Aktif</span>
+                            </td>
+                            <td><span class="course-schedule">Rabu	10:15 - 12:45</span></td>
+                            <td><span class="lecturer-name">Fajar Masya, Ir. MMSI</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="course-code">W182100010</span></td>
+                            <td>
+                                <span class="course-name">ANALISA PERANCANGAN SISTEM INFORMASI</span>
+                                <span class="status-badge status-active">Aktif</span>
+                            </td>
+                            <td><span class="course-schedule">Rabu	13:15 - 15:45</span></td>
+                            <td><span class="lecturer-name">Yunita Sartika Sari, S.Kom, M.Kom</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="course-code">W182100012</span></td>
+                            <td>
+                                <span class="course-name">PEMROGRAMAN WEB</span>
+                                <span class="status-badge status-active">Aktif</span>
+                            </td>
+                            <td><span class="course-schedule">Kamis	07:30 - 10:00</span></td>
+                            <td><span class="lecturer-name">Muhammad Ali Akbar, M.Kom</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="course-code">W182100032</span></td>
+                            <td>
+                                <span class="course-name">PEMROGRAMAN MOBILE</span>
+                                <span class="status-badge status-active">Aktif</span>
+                            </td>
+                            <td><span class="course-schedule">Kamis	10:15 - 12:45</span></td>
+                            <td><span class="lecturer-name">Muhammad Ali Akbar, M.Kom</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="course-code">U002100007</span></td>
+                            <td>
+                                <span class="course-name">PANCASILA</span>
+                                <span class="status-badge status-active">Aktif</span>
+                            </td>
+                            <td><span class="course-schedule">Jumat	09:30 - 11:10</span></td>
+                            <td><span class="lecturer-name">Singmin Johanes Lo, Dr, MM</span></td>
+                        </tr>
+                        <!-- Tambahkan mata kuliah semester ganjil lainnya -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="semester2" class="semester-content" style="display: none;">
+                <h3>Daftar Mata Kuliah Semester Genap</h3>
+                <table class="course-table">
+                    <thead>
+                        <tr>
+                            <th>Kode MK</th>
+                            <th>Mata Kuliah</th>
+                            <th>Jadwal Kuliah</th>
+                            <th>Dosen Pengampu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="course-code">W182100030</span></td>
+                            <td>
+                                <span class="course-name">PEMROGRAMAN LANJUT</span>
+                                <span class="status-badge status-active">Aktif</span>
+                            </td>
+                            <td><span class="course-schedule">Senin 07:30 - 10:00</span></td>
+                            <td><span class="lecturer-name">Muhammad Ali Akbar.M,Kom</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="course-code">W182100031</span></td>
+                            <td>
+                                <span class="course-name">INTERAKSI MANUSIA DAN KOMPUTER</span>
+                                <span class="status-badge status-active">Aktif</span>
+                            </td>
+                            <td><span class="course-schedule">Senin 10:15 - 12:45</span></td>
+                            <td><span class="lecturer-name">Misbahul Fajri, Dr. M.TI</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="course-code">F062100002</span></td>
+                            <td>
+                                <span class="course-name">STATISTIK DAN PROBABILITAS</span>
+                                <span class="status-badge status-active">Aktif</span>
+                            </td>
+                            <td><span class="course-schedule">Senin 13:15 - 15:45</span></td>
+                            <td><span class="lecturer-name">Misbahul Fajri, Dr. M.TI</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="course-code">W182100009</span></td>
+                            <td>
+                                <span class="course-name">CCNA R & S 1</span>
+                                <span class="status-badge status-active">Aktif</span>
+                            </td>
+                            <td><span class="course-schedule">Selasa 07:30 - 10:005</span></td>
+                            <td><span class="lecturer-name">Ratna Mutu Manikam, S.Kom, MT</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="course-code">W182100006</span></td>
+                            <td>
+                                <span class="course-name">IMPLEMENTASI BASIS DATA</span>
+                                <span class="status-badge status-active">Aktif</span>
+                            </td>
+                            <td><span class="course-schedule">Selasa 10:15 - 12:45</span></td>
+                            <td><span class="lecturer-name">Yunita Sartika Sari, S.Kom, M.Kom</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="course-code">F062100004</span></td>
+                            <td>
+                                <span class="course-name">REKAYASA PERANGKAT LUNAK</span>
+                                <span class="status-badge status-active">Aktif</span>
+                            </td>
+                            <td><span class="course-schedule">Selasa 13:15 - 15:45</span></td>
+                            <td><span class="lecturer-name">Ruci Meiyanti, Dr. S.Kom, M.Kom	</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="course-code">U002100010</span></td>
+                            <td>
+                                <span class="course-name">PENDIDIKAN ANTI KORUPSI DAN ETIK UMB</span>
+                                <span class="status-badge status-active">Aktif</span>
+                            </td>
+                            <td><span class="course-schedule">Jumat	07:30 - 09:10</span></td>
+                            <td><span class="lecturer-name">Rosalendro Eddy Nugroho, Dr. Ir, MM</span></td>
+                        </tr>
+                        <!-- Tambahkan mata kuliah semester genap lainnya -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk menampilkan halaman
+        function showPage(pageId) {
+            // Sembunyikan semua halaman
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+                page.style.display = 'none';
+            });
+            
+            // Tampilkan halaman yang dipilih
+            const selectedPage = document.getElementById(pageId);
+            selectedPage.style.display = 'block';
+            setTimeout(() => {
+                selectedPage.classList.add('active');
+            }, 100);
+    
+            // Jika halaman infoKuliah yang dipilih, tampilkan semester1 secara default
+            if(pageId === 'infoKuliah') {
+                showSemester('semester1');
+            }
+        }
+    
+        // Fungsi untuk menampilkan semester
+        function showSemester(semesterId) {
+            // Sembunyikan semua konten semester
+            document.querySelectorAll('.semester-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            // Tampilkan semester yang dipilih
+            document.getElementById(semesterId).style.display = 'block';
+        }
+    
+        // Ketika dokumen dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tampilkan halaman home secara default
+            showPage('home');
+        });
+    </script>

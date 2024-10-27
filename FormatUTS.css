@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: hsl(211, 100%, 50%);
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: hsl(211, 100%, 50%);
+    color: #ffffff;
+}
+
+.bio {
+    width: 60%; /* Menggunakan persentase untuk lebar */
+    margin: 0 auto; /* Mengatur margin otomatis untuk sentralisasi */
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    font-size: 1.2em; /* Menggunakan em untuk ukuran font */
+    color: hsl(200, 12%, 10%);
+    width: 300px; /* Menggunakan absolute length */
+    height: 211px; /* Menggunakan absolute length */
+    background-color: hsl(211, 100%, 50%);
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+}
+.foto-diri {
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    font-size: 1.2em; /* Menggunakan em untuk ukuran font */
+    width: 16%; /* Menggunakan persentase untuk lebar */
+    margin: 0 auto; /* Mengatur margin otomatis untuk sentralisasi */
+    padding: 10px 0;
+}
+
+.absolute-length {
+    width: 300px; /* Menggunakan absolute length */
+    height: 100px; /* Menggunakan absolute length */
+    background-color: #ccc;
+    position: relative; /* Memungkinkan penggunaan relative positioning */
+}
+
+.relative-positioning {
+    position: relative; /* Mengatur posisi relatif untuk elemen ini */
+}
+
+.relative-length p {
+    font-size: 1em; /* Menggunakan em untuk ukuran font */
+    color: hsl(204, 96%, 65%);
+}
